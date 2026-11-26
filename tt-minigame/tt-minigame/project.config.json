@@ -1,0 +1,11 @@
+{
+  "appid": "tt6e0d18b0f0707a4d07",
+  "projectname": "叠高楼",
+
+   "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "native" },
+      { "type": "folder", "value": "__MACOSX" }
+    ]
+  }
+}

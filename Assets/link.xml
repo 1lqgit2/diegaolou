@@ -1,0 +1,15 @@
+<linker>
+  <!--
+    抖音小游戏运行时（tmg-core.js）会在启动时反射查找以下类型/方法：
+      UnityEngine.Analytics.AnalyticsSessionInfo
+      UnityEngine.Analytics.ContinuousEvent
+      UnityEngine.RemoteConfigSettings
+      UnityEngine.RemoteSettings
+    它们都位于 UnityEngine.UnityAnalyticsModule 程序集。
+    工程开启了 Strip Engine Code，若这些类型未被任何脚本引用就会被裁掉，
+    抖音侧就会刷大量 "Unable to find type [UnityEngine.UnityAnalyticsModule.dll]..." 的报错。
+    这里显式保留整个程序集，保证类型存在（Analytics 上报本身仍在
+    UnityConnectSettings.asset 里关闭，不会产生任何网络请求）。
+  -->
+  <assembly fullname="UnityEngine.UnityAnalyticsModule" preserve="all" />
+</linker>
